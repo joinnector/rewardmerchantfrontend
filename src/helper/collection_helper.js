@@ -209,7 +209,7 @@ class CollectionHelper {
 		if (CollectionHelper.validate_is_null_or_undefined(datetime) === true) return null;
 
 		// custom
-		if (moment.isDate(datetime) === false) return null;
+		if (moment(datetime).isValid() === false) return null;
 
 		// get the offset
 		if (moment(datetime).utcOffset() === 0) return moment.utc(datetime).toISOString();  // already in UTC, dont convert
@@ -220,7 +220,7 @@ class CollectionHelper {
 		if (CollectionHelper.validate_is_null_or_undefined(datetime) === true) return null;
 
 		// custom
-		if (moment.isDate(datetime) === false) return null;
+		if (moment(datetime).isValid() === false) return null;
 
 		// safe convert to utc if not in utc
 		const isodatetime_utc = CollectionHelper.convert_to_isodatetime_utc_from_datetime(datetime);
